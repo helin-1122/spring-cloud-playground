@@ -1,0 +1,44 @@
+version: '3.3'
+
+services:
+  config-server:
+    container_name: config-server
+    image: docker-config-server:latest
+    build: .
+    ports:
+      - 8888:8888
+    networks:
+      testnet:
+        aliases:
+            - "config-server"
+
+  eureka-service:
+    container_name: eureka-service
+    image: docker-eureka-service:latest
+    build: ..\eureka-service\
+    ports:
+      - 8761:8761
+    networks:
+      testnet:
+        aliases:
+            - "eureka-service"
+    depends_on:
+      - config-server
+
+  reservation-service:
+    container_name: reservation-service
+    image: docker-reservation-service:latest
+    build: ..\reservation-service\
+    ports:
+      - 8000:8000
+    networks:
+      testnet:
+        aliases:
+            - "reservation-service"
+    depends_on:
+      - config-server
+      - eureka-service
+
+networks:
+  testnet:
+    driver: bridge
