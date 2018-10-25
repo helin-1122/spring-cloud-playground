@@ -4,5 +4,5 @@ management:
     endpoints:
         web: 
             exposure:
-                include: *
+                include: "*"
 message: hello from cloud
