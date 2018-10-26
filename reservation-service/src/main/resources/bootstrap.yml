@@ -6,6 +6,7 @@ spring:
         uri: http://config-server:8888
         fail-fast: true
         retry:
-          maxAttempts: 20
+          max-attempts: 20
           max-interval: 6000
           initial-interval: 6000
+

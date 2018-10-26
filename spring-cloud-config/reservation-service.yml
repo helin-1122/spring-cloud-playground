@@ -1,8 +1,17 @@
 server:
     port: 8000
+    
+eureka:
+    client:
+        register-with-eureka: true
+        fetch-registry: true
+        serviceUrl:
+            defaultZone: http://eureka-service:8761/eureka/
+            
 management:
     endpoints:
         web: 
             exposure:
                 include: "*"
+                
 message: hello from cloud

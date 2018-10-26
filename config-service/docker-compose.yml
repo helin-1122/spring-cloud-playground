@@ -37,7 +37,6 @@ services:
             - "reservation-service"
     depends_on:
       - config-server
-      - eureka-service
 
 networks:
   testnet:
