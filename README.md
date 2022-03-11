@@ -1,4 +1,4 @@
-### spring-cloud-demo
+### Steps
 
 1. Go to folder /config-service, and start applications with docker compose
 ```
